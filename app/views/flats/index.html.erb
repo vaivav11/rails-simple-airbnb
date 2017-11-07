@@ -1,0 +1,19 @@
+<h1>Simple Airbnb</h1>
+  <ul>
+    <% @flats.each do |flat| %>
+      <li>
+          <h3><%= flat.name %></h3>
+          <p><%= flat.address %></p>
+          <i class="fa fa-users" aria-hidden="true"></i><%= flat.number_of_guests %>
+          <i class="fa fa-eur" aria-hidden="true"></i><%=flat.price_per_night %>
+          <%= link_to 'More info', flat_path(flat) %>
+          <%= link_to "Edit", edit_flat_path(flat) %>
+          <%= link_to "Delete", flat_path(flat),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+      </li>
+      <% end %>
+  </ul>
+
+
+<%= link_to "create a new flat", new_flat_path %>
